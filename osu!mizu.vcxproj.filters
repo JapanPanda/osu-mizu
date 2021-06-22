@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MizuMemory\MemoryReader.h">
+    <ClInclude Include="include\MemoryReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MizuMemory\MemoryReader.cpp">
+    <ClCompile Include="src\MizuMemory\MemoryReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

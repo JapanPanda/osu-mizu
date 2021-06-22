@@ -33,14 +33,15 @@ namespace MizuMemory {
     };
 
     class MemoryReader {
-    private:
+    public:
         DWORD processId;
         HANDLE processHandle;
         std::unordered_map<std::wstring, MODULEENTRY32> moduleMap;
 
+        // FUNCTIONS
         void openProcess(const std::wstring& processName);
         void openModule(const std::wstring& moduleName);
-    public:
+
         MemoryReader(const std::wstring& processName, const std::vector<std::wstring>& moduleNames);
 
         template <typename T>
@@ -62,13 +63,5 @@ namespace MizuMemory {
         Address scanSignatureAndResolve(const Signature& signature, char* begin, intptr_t size, int offset, const std::vector<unsigned int>& ptrOffsets);
 
         void resolvePointerChain(Address& address);
-
-        MODULEENTRY32 getModule(std::wstring moduleName) {
-            if (this->moduleMap.find(moduleName) == this->moduleMap.end()) {
-                std::wcerr << "Could not retrieve " << moduleName << " from the map." << std::endl;
-                throw std::invalid_argument("Could not get non-existent module. Load it first or make sure you typed it right.");
-            }
-            return moduleMap[moduleName];
-        }
     };
 }

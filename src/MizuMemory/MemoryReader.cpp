@@ -1,4 +1,4 @@
-﻿#include "MemoryReader.h"
+﻿#include "MizuMemory/MemoryReader.h"
 
 using namespace MizuMemory;
 
